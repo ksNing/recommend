@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>景点推荐列表</title>
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <p>已经游玩过的景点</p>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>景点名称</th>
+                    <th>类型</th>
+                </tr>
+                </thead>
+                <tbody th:each="lookedSpot:${lookedSpot}">
+                <tr>
+                    <td th:text="${lookedspot.spotId}"></td>
+                    <td th:text="${lookedspot.spotName}"></td>
+                    <td th:text="${lookedspot.genres}"></td>
+
+                </tr>
+                </tbody>
+            </table>
+            <p>基于用户的协同过滤算法推荐的景点</p>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>景点名称</th>
+                    <th>类型</th>
+                </tr>
+                </thead>
+                <tbody th:each="spotsRBU:${spotsRBU}">
+                   <tr>
+                       <td th:text="${spotsRBU.spotId}"></td>
+                       <td th:text="${spotsRBU.spotName}"></td>
+                       <td th:text="${spotsRBU.genres}"></td>
+                   </tr>
+                </tbody>
+            </table>
+            <p>基于内容的协同过滤算法推荐的景点</p>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <td>ID</td>
+                    <td>景点名称</td>
+                    <td>类型</td>
+
+                  </tr>
+                </thead>
+                <tbody th:each="spotsRBI:${spotsRBI}">
+                  <tr>
+                      <td th:text="${spotsRBI.spotId}"></td>
+                      <td th:text="${spotsRBI.spotName}"></td>
+                      <td th:text="${spotsRBI.genres}"></td>
+
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
